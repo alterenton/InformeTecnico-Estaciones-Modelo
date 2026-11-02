@@ -1,0 +1,35 @@
+\begin{titlepage}
+
+\begin{tikzpicture}[remember picture, overlay]
+% Coordenadas
+\path
+($(current page.north west)!0.5!(current page.center)$)coordinate(Aa) --
+($(current page.north east)!0.5!(current page.center)$)coordinate(Ab) --
+($(current page.south west)!0.5!(current page.center)$)coordinate(Ba) --
+($(current page.south east)!0.5!(current page.center)$)coordinate(Bb) ;
+% ------------
+
+% Espacio
+\fill[white] (current page.north west) rectangle (current page.south east);
+% ----------
+
+% Línea del medio
+\draw[black] ([yshift=-2cm]current page.north) -- ([yshift=2cm]current page.south);
+% ------------
+
+% Logo de la empresa
+\node[yshift=1cm] at (Aa) [anchor=south]{\adjincludegraphics[width=8cm]{utilidades/img/LogoInsitel}};
+% ------------------
+
+1
+
+% Firma
+\node at (Bb) [anchor=north]{\adjincludegraphics[width=3cm]{utilidades/img/FirmaJuanCarlos}};
+% -------------
+
+% Píe de página
+\node[font=\bfseries] at ([yshift=1cm]current page.south) [anchor=south]{INSITEL - Lima Perú, 2026};
+% ---------------
+\end{tikzpicture}
+
+\end{titlepage}
