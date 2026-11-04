@@ -1,4 +1,5 @@
 \usepackage{luacode}
+\luaexec{f=require("utilidades/funciones")}
 
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -10,3 +11,43 @@
 
 \usepackage{fontspec}
 \setmainfont{Calibri}
+
+\usepackage{tabularray}
+\SetTblrInner[tblr]{
+	hlines,
+	vlines,
+	row{1}={bg=SuAzul, fg=white}
+}
+\SetTblrInner[longtblr]{
+	hlines,
+	vlines,	
+	row{1}={bg=SuAzul, fg=white}
+}
+\DeclareTblrTemplate{contfoot-text}{default}{}
+\DeclareTblrTemplate{conthead-text}{default}{}
+\DeclareTblrTemplate{caption}{default}{}
+\DeclareTblrTemplate{capcont}{default}{}
+\UseTblrLibrary{varwidth}
+
+\usepackage{xcolor}
+\definecolor{SuAzul}{RGB}{31, 78, 120}
+\definecolor{SuCielo}{RGB}{219, 228, 240}
+
+\usepackage{geometry}
+\geometry{
+	margin=1.5cm,
+	ignoremp,
+	includehead,
+	includefoot,
+	headsep=10pt,
+	headheight=40pt
+}
+
+\usepackage{siunitx}
+\sisetup{
+	mode = text,
+	round-mode = places,
+	per-mode = symbol
+}
+
+\renewcommand{\contentsname}{Contenido}
