@@ -87,7 +87,7 @@ f.variables = {
             marca = marcas.kine.name,
             modelo = marcas.kine.equi,
             tecnologia = tecnologias.FBA,
-            serie = "-"
+            serie = 0
         },
         azotea = {
             ubicacion = "Azotea",
@@ -363,13 +363,13 @@ f.variables = {
     dispositivos = {
         sotano = {
             interna = {
-                memoria = memorias.uno,
+                memoria = memorias.emmc,
                 libre = 15526.67,
                 total = 15568.10,
                 extension = "MB"
             },
             externa = {
-                memoria = memorias.dos,
+                memoria = memorias.flash,
                 libre = 25127.12,
                 total = 30463.36,
                 extension = "MB"
@@ -377,13 +377,13 @@ f.variables = {
         },
         azotea = {
             interna = {
-                memoria = memorias.uno,
+                memoria = memorias.emmc,
                 libre = 16064.87,
                 total = 16079.91,
                 extension = "MB"
             },
             externa = {
-                memoria = memorias.dos,
+                memoria = memorias.flash,
                 libre = 55787.45,
                 total = 60889.13,
                 extension = "MB"
@@ -418,7 +418,7 @@ function f.variables.fecha.muestra(fecha) -- Ejemplo: 12/12/2025
     )
 end
 
-function f.variables.disponibilidad.codigo(estacion) -- ED.PL05N.01
+function f.variables.disponibilidad.codigo(estacion) -- Ejemplo: ED.PL05N.01
     return string.format(
         "%s.%s.%s",
         f.variables.disponibilidad[estacion].station,
@@ -473,9 +473,69 @@ function f.variables.fecha.dias_entre_fechas(fecha1, fecha2)
     return dias
 end
 
-function f.variables.porcentaje(libre, total)
-    1
-    return 1
+function f.variables.dispositivos.porcentaje_uso(libre, total)
+    return string.format(
+		"%.2f",
+		((total-libre)/total)*100
+	)
+end
+
+function f.variables.dispositivos.porcentaje_libre(libre, total)
+    return string.format(
+		"%.2f",
+		(libre/total)*100
+	)
+end
+
+function f.buscar_pga_maximo(archivo)
+    local resultado = {
+        valor = -math.huge,
+        evento = nil,
+        referencia = nil,
+        magnitud = nil,
+        hora = nil,
+        pgae = nil,
+        pgan = nil,
+        pgaz = nil
+    }
+
+    local file = io.open(archivo, "r")
+
+    if not file then
+        error("No se pudo abrir el archivo: " .. archivo)
+    end
+
+    -- Saltar cabecera
+    file:read("*l")
+
+    for linea in file:lines() do
+        local evento, referencia, magnitud, hora, pgae, pgan, pgaz =
+            linea:match("([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*)")
+
+        pgae = tonumber(pgae)
+        pgan = tonumber(pgan)
+        pgaz = tonumber(pgaz)
+
+        -- Máximo PGA de esta fila
+        local pga = math.max(pgae, pgan, pgaz)
+
+        -- ¿Es el mayor encontrado hasta ahora?
+        if pga > resultado.valor then
+            resultado.valor = pga
+            resultado.evento = tonumber(evento)
+            resultado.referencia = referencia
+            resultado.magnitud = tonumber(magnitud)
+            resultado.hora = hora
+
+            resultado.pgae = pgae
+            resultado.pgan = pgan
+            resultado.pgaz = pgaz
+        end
+    end
+
+    file:close()
+
+    return resultado
 end
 
 return f
