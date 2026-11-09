@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, draft]{article}
+\documentclass[a4paper, 12pt, final]{article}
 
 \input{utilidades/preambulo}
 
@@ -24,24 +24,24 @@
 \section{ESTADO DEL SISTEMA DE SUMINISTRO ELÉCTRICO}
 \luaexec{tex.sprint("\\input{secciones/suministro/" .. f.variables.descripcion.estaciones .. "}")}
 
-\section{ESTADO DEL SENSOR INTERNO}
-\luaexec{tex.sprint("\\input{secciones/sensor/" .. f.variables.descripcion.estaciones .. "}")}
+% \section{ESTADO DEL SENSOR INTERNO}
+%\luaexec{tex.sprint("\\input{secciones/sensor/" .. f.variables.descripcion.estaciones .. "}")}
 
 \section{ESTADO DE LOS DISPOSITIVOS DE ALMACENAMIENTO}
 \luaexec{tex.sprint("\\input{secciones/dispositivos/" .. f.variables.descripcion.estaciones .. "}")}
 
-\section{ESTADO DEL SISTEMA DE TIEMPO}
-\luaexec{tex.sprint("\\input{secciones/sistema/" .. f.variables.descripcion.estaciones .. "}")}
+% \section{ESTADO DEL SISTEMA DE TIEMPO}
+% \luaexec{tex.sprint("\\input{secciones/sistema/" .. f.variables.descripcion.estaciones .. "}")}
 
 \section{IMÁGENES DE REFERENCIA}
 \luaexec{tex.sprint("\\input{secciones/imagenes/" .. f.variables.descripcion.estaciones .. "}")}
 
-\section{FORMATO DE POLOS Y CEROS}
-\label{sec:formato}
-\luaexec{tex.sprint("\\input{secciones/formato/" .. f.variables.descripcion.estaciones .. "}")}
+% \section{FORMATO DE POLOS Y CEROS}
+% \label{sec:formato}
+% \luaexec{tex.sprint("\\input{secciones/formato/" .. f.variables.descripcion.estaciones .. "}")}
 
 \section{FORMAS DE ONDA}
 \label{sec:formas}
-\luaexec{tex.sprint("\\input{secciones/formas/" .. f.variables.descripcion.estaciones .. "}")}
+%\luaexec{tex.sprint("\\input{secciones/formas/" .. f.variables.descripcion.estaciones .. "}")}
 
 \end{document}

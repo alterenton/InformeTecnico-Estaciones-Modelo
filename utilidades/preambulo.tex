@@ -70,4 +70,35 @@
 {1ex}
 {1ex}
 
+\usepackage{csvsimple-l3}
+
+\usepackage{hyperref}
+\hypersetup{
+	hidelinks
+}
+\urlstyle{sf}
+
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\includegraphics[scale=0.55]{utilidades/img/LogoInsitel}}
+\fancyhead[R]{
+	{\color{gray} Av. La Fontana 1159 - La Molina - Lima - Perú}\\
+	{\color{gray} E-mail:} {\color{SuAzul} \url{info@insitel.pe}} - {\color{SuAzul} \url{ventas@insitel.pe}}\\
+	{\color{gray} Contacto: +51 951 332 375}
+}
+\fancyfoot[L]{
+	{\color{gray} INSTRUMENTACIÓN SÍSMICA Y TELEMETRÍA SAC}\\
+	{\color{gray} Website:} {\color{SuAzul} \url{www.insitel.pe}}
+}
+\fancyfoot[C]{}
+\fancyfoot[R]{
+	{\color{gray} Página \thepage~de \pageref{LastPage}}
+}
+\renewcommand{\footrulewidth}{1pt}
+\renewcommand{\headrulewidth}{1pt}
+
+\setlength{\parindent}{0pt}
+
 \renewcommand{\contentsname}{Contenido}

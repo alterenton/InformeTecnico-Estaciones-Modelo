@@ -24,7 +24,8 @@
 	\luaexec{tex.sprint(f.variables.suministro.sotano.fuente.areg)} \unit{\volt} \\
 	OBSERVACIONES &
 	\SetCell[r=1,c=3]{l, 13cm} \begin{itemize}
-		\item La fuente conmutada presenta un funcionamiento estable y acorde con las condiciones normales de operación. Durante la inspección no se identificaron indicios de sobrecalentamiento, sobretensión o sobrecorriente, manteniéndose los parámetros eléctricos evaluados dentro de los valores esperados.
+		\item La fuente conmutada se encuentra inoperativa, no suministra energía al sistema y no permite la carga de las baterías. Durante la revisión se identificó que la fuente no enciende el LED indicador de encendido, lo que sugiere un posible fallo interno.
+		% \item La fuente conmutada presenta un funcionamiento estable y acorde con las condiciones normales de operación. Durante la inspección no se identificaron indicios de sobrecalentamiento, sobretensión o sobrecorriente, manteniéndose los parámetros eléctricos evaluados dentro de los valores esperados.
 	\end{itemize}\\
 	% <<<<<<<<<<
 	% controlador
@@ -42,7 +43,8 @@
 	\luaexec{tex.sprint(f.variables.suministro.sotano.controlador.vcar)} \unit{\volt} \\
 	OBSERVACIONES &
 	\SetCell[r=1,c=3]{l, 13cm} \begin{itemize}
-		\item El controlador de carga se encuentra operativo y cumple adecuadamente su función de regulación y gestión de la alimentación del sistema. Su funcionamiento permite mantener una fuente de energía de respaldo disponible, contribuyendo a la continuidad operativa del equipo ante eventuales interrupciones de la alimentación principal.
+		\item La fuente conmutada de la marca posee un circuito interno inteligente que permite controlar la carga de las baterías y la distribución de energía al sistema. Desafortunadamente, durante la inspección se identificó que la fuente no enciende su LED indicador de funcionamiento, lo que nos indica que este dispositivo no está suministrando energía al sistema y no permite la carga de las baterías.
+		% \item El controlador de carga se encuentra operativo y cumple adecuadamente su función de regulación y gestión de la alimentación del sistema. Su funcionamiento permite mantener una fuente de energía de respaldo disponible, contribuyendo a la continuidad operativa del equipo ante eventuales interrupciones de la alimentación principal.
 	\end{itemize}\\
 	% <<<<<<<<<<<<<
 	% bateria
@@ -52,7 +54,7 @@
 	MODELO &
 	\SetCell[r=1,c=3]{l} \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.modelo)} \\
 	CAPACIDAD &
-	\SetCell[r=1,c=3]{l, 13cm} Banco de 2 baterías conectadas en \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.arreglo)} con una capacidad total de \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.capa_tota)} \\
+	\SetCell[r=1,c=3]{l, 13cm} Banco de \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.nro_bat)} baterías conectadas en \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.arreglo)} con una capacidad total de \luaexec{tex.sprint(f.variables.suministro.sotano.bateria.capa_tota)} \\
 	\SetCell[r=2,c=1]{l} MEDICIONES & VOLTAJE INICIAL DE DESCARGA & TIEMPO DE DESCARGA & VOLTAJE FINAL DE DESCARGA \\
 	&
 	\luaexec{tex.sprint(f.variables.suministro.sotano.bateria.vini)} \unit{\volt} &
@@ -60,8 +62,9 @@
 	\luaexec{tex.sprint(f.variables.suministro.sotano.bateria.vfin)} \unit{\volt} \\
 	OBSERVACIONES &
 	\SetCell[r=1,c=3]{l, 13cm} \begin{itemize}
-		\item Las baterías se encuentran en condiciones adecuadas para el servicio, manteniendo disponibilidad para suministrar energía de respaldo al sistema ante una eventual interrupción de la alimentación principal. Durante la inspección no se identificaron anomalías que comprometan su funcionamiento.
+		% \item Las baterías se encuentran en condiciones adecuadas para el servicio, manteniendo disponibilidad para suministrar energía de respaldo al sistema ante una eventual interrupción de la alimentación principal. Durante la inspección no se identificaron anomalías que comprometan su funcionamiento.
 		% \item Debido a la antiguedad de la batería, se recomienda su reemplazo para garantizar la continuidad del suministro eléctrico y evitar posibles fallas en el sistema. La batería actual ha mostrado signos de desgaste y disminución acelerada de su capacidad, lo que podría afectar la eficiencia del sistema de respaldo.
+		\item Debido a las problemáticas identificadas en la fuente conmutada, se propuso el cambio inmediato de la batería de energía por una nueva de la marca RITAR modelo RA12-80 con una capacidad de 12V / 80Ah, la cual fue instalada mas no puesta en marcha, se espera que la fuente conmutada tambien sea reemplazada para garantizar la continuidad del suministro eléctrico y evitar posibles fallas en el sistema.
 	\end{itemize} \\
 	% <<<<<<<<<<<<
 	% ----------
@@ -111,7 +114,8 @@
 	\luaexec{tex.sprint(f.variables.suministro.azotea.controlador.vcar)} \unit{\volt} \\
 	OBSERVACIONES &
 	\SetCell[r=1,c=3]{l, 13cm} \begin{itemize}
-		\item El controlador de carga se encuentra operativo y cumple adecuadamente su función de regulación y gestión de la alimentación del sistema. Su funcionamiento permite mantener una fuente de energía de respaldo disponible, contribuyendo a la continuidad operativa del equipo ante eventuales interrupciones de la alimentación principal.
+		\item Como se mencionó anteriormente, el controlador de carga de la marca SAMLEX esta presente como un circuito interno dentro de la fuente conmutada, el cual permite dosificar la carga de las baterías y la distribución de energía al sistema. Durante la inspección se identificó que el dispositivo se encuentra operativo y cumple adecuadamente su función de regulación y gestión de la alimentación del sistema.
+		% \item El controlador de carga se encuentra operativo y cumple adecuadamente su función de regulación y gestión de la alimentación del sistema. Su funcionamiento permite mantener una fuente de energía de respaldo disponible, contribuyendo a la continuidad operativa del equipo ante eventuales interrupciones de la alimentación principal.
 	\end{itemize}\\
 	% <<<<<<<<<<<<<
 	% bateria
@@ -129,7 +133,8 @@
 	\luaexec{tex.sprint(f.variables.suministro.azotea.bateria.vfin)} \unit{\volt} \\
 	OBSERVACIONES &
 	\SetCell[r=1,c=3]{l, 13cm} \begin{itemize}
-		\item Las baterías se encuentran en condiciones adecuadas para el servicio, manteniendo disponibilidad para suministrar energía de respaldo al sistema ante una eventual interrupción de la alimentación principal. Durante la inspección no se identificaron anomalías que comprometan su funcionamiento.
+		\item La batería de energía de esta estación se encuentra en condiciones críticas de operación mostrando signos de desgaste y disminución acelerada de su capacidad debido a su resistencia interna , lo que podría afectar en una eventual interrupción de la alimentación principal. En este sentido, se realizo el cambio de batería por una nueva de la marca RITAR modelo RA12-80 con una capacidad de 12V / 80Ah, la cual fue instalada y puesta en marcha, garantizando la continuidad del suministro eléctrico y evitando posibles fallas en el sistema.
+		% \item Las baterías se encuentran en condiciones adecuadas para el servicio, manteniendo disponibilidad para suministrar energía de respaldo al sistema ante una eventual interrupción de la alimentación principal. Durante la inspección no se identificaron anomalías que comprometan su funcionamiento.
 	\end{itemize} \\
 	% <<<<<<<<<<<<
 	% ----------

@@ -62,6 +62,12 @@ local marcas = {
         mode = "SEC-1230UL",
         capa = "12V, 30A"
 
+    },
+    felicity = {
+        name = "FelicitySolar",
+        web = "https://latam.felicitysolar.com/",
+        mode = "G12V70AH / FL-G-70",
+        capa = "12V / 70Ah"
     }
 }
 
@@ -74,7 +80,9 @@ local fecha_mntto = {
 f.variables = {
     -- Capitulo 1
     caratula = {
+        documento = "Reporte de Mantenimiento",
         edificio = "Aliaga Invent",
+        sigla = "RPMNTTO",
         nro_informe = 62,
     },
     -- Capitulo 2
@@ -87,111 +95,108 @@ f.variables = {
             marca = marcas.kine.name,
             modelo = marcas.kine.equi,
             tecnologia = tecnologias.FBA,
-            serie = 0
+            serie = 104944
         },
         azotea = {
             ubicacion = "Azotea",
             marca = marcas.kine.name,
             modelo = marcas.kine.equi,
             tecnologia = tecnologias.FBA,
-            serie = "-"
+            serie = 104945
         }
     },
     -- Capitulo 4
     disponibilidad = {
         enlace = "https://mega.io/es/",
         sotano = {
-            station = "ED",
-            code = "CH05N",
+            station = "PE",
+            code = "KMI",
             location = "-",
             inicio = {
-                dia = 05,
+                dia = 07,
                 mes = 05,
-                ano = 2026
+                ano = 2024
             },
-            final = {
-                dia = 19,
-                mes = 10,
-                ano = 2026
-            },
-            tamano = 4.92,
+            final = fecha_mntto,
+            tamano = 24.9,
             ext_tam = "GB",
-            archivos = 12015,
+            archivos = 58953,
             carpetas = 0,
             dispone = 100
         },
         azotea = {
             station = "ED",
-            code = "JM61N",
-            location = "",
+            code = "MM18N",
+            location = "-",
             inicio = {
-                dia = 23,
-                mes = 04,
-                ano = 2026
+                dia = 01,
+                mes = 07,
+                ano = 2025
             },
             final = fecha_mntto,
-            tamano = 4.71,
+            tamano = 22.7,
             ext_tam = "GB",
-            archivos = 8310,
+            archivos = 51269,
             carpetas = 0,
-            dispone = 69.8
+            dispone = 100
         }
     },
     -- Capitulo 5
     suministro = {
         sotano = {
             fuente = {
-                marca = marcas.mean.name,
-                modelo = marcas.mean.mode,
-                capacidad = marcas.mean.capa,
-                vin = 229.4,
-                vout = 14.2,
-                areg = 0.7
+                marca = marcas.samlex.name,
+                modelo = marcas.samlex.mode,
+                capacidad = marcas.samlex.capa,
+                vin = 221.2,
+                vout = 0.0,
+                areg = 0.0
             },
             controlador = {
-                marca = marcas.morning.name,
-                modelo = marcas.morning.mode,
-                capacidad = marcas.morning.capa,
-                vin = 14.1,
-                vbat = 13.8,
-                vcar = 13.9
+                marca = marcas.samlex.name,
+                modelo = marcas.samlex.mode,
+                capacidad = marcas.samlex.capa,
+                vin = 0.0,
+                vbat = 0.0,
+                vcar = 0.0,
             },
             bateria = {
-                marca = marcas.ritar.name,
-                modelo = marcas.ritar.mode,
-                arreglo = "paralelo",
-                nro_bat = 2,
-                capa_tota = "12V / 24Ah",
-                vini = 13.2, -- 11:26
-                tdes = 27,
-                vfin = 12.7 -- 11:53
+                marca = marcas.felicity.name,
+                modelo = marcas.felicity.mode,
+                nro_bat = 1,
+                arreglo = "directa",
+                capa_tota = marcas.felicity.capa,
+                vini = 10.00,
+                tdes = 15,
+                vfin = 9.9
             }
         },
         azotea = {
             fuente = {
-                marca = marcas.mean.name,
-                modelo = marcas.mean.mode_dice,
-                capacidad = marcas.mean.capa_dice,
-                vin = 229.6,
-                vout = 13.7,
-                areg = 0.2
+                marca = marcas.samlex.name,
+                modelo = marcas.samlex.mode,
+                capacidad = marcas.samlex.capa,
+                vin = 218.7,
+                vout = 13.2,
+                areg = 0.0
             },
             controlador = {
-                marca = marcas.morning.name,
-                modelo = marcas.morning.mode_dice,
-                capacidad = marcas.morning.capa_dice,
-                vin = 13.7,
-                vbat = 13.7,
-                vcar = 13.7
+                marca = marcas.samlex.name,
+                modelo = marcas.samlex.mode,
+                capacidad = marcas.samlex.capa,
+                vin = 13.2,
+                vbat = 13.2,
+                vcar = 13.2
             },
             bateria = {
-                marca = marcas.ritar.name,
-                modelo = marcas.ritar.mode,
-                arreglo = "paralelo",
-                capa_tota = "24V / 12Ah",
-                vini = 13.6, --16.42,
+                marca = marcas.felicity.name,
+                modelo = marcas.felicity.mode,
+                nro_bat = 2,
+                arreglo = "directa",
+                capa_tota = marcas.felicity.capa,
+                vini = 13.3, --12.29,
                 tdes = 15,
-                vfin = 13.2 -- 16.57
+                vfin = 12.8 -- 16.57
             }
         }
     },
@@ -364,28 +369,28 @@ f.variables = {
         sotano = {
             interna = {
                 memoria = memorias.emmc,
-                libre = 15526.67,
-                total = 15568.10,
-                extension = "MB"
+                libre = 0.642,
+                total = 29,
+                extension = "GB"
             },
             externa = {
-                memoria = memorias.flash,
-                libre = 25127.12,
-                total = 30463.36,
+                memoria = "No posee",
+                libre = 0.01,
+                total = 1,
                 extension = "MB"
             }
         },
         azotea = {
             interna = {
                 memoria = memorias.emmc,
-                libre = 16064.87,
-                total = 16079.91,
-                extension = "MB"
+                libre = 6.43,
+                total = 29,
+                extension = "GB"
             },
             externa = {
-                memoria = memorias.flash,
-                libre = 55787.45,
-                total = 60889.13,
+                memoria = "No posee",
+                libre = 0.01,
+                total = 1,
                 extension = "MB"
             }
         }
